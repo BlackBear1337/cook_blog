@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(*nybv3q0xoap1$e(6#l+g6=jq0=wl!692o6c378=(@ja=n38)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
 
 # Application definition
@@ -81,8 +83,11 @@ WSGI_APPLICATION = 'cook_blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cookdb',
+        'USER': 'admin',
+        'PASSWORD': 'python2022',
+        'HOST': 'localhost'
     }
 }
 
@@ -134,3 +139,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+STATIC_ROOT = '/var/www/html' + STATIC_URL
