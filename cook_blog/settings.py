@@ -23,11 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(*nybv3q0xoap1$e(6#l+g6=jq0=wl!692o6c378=(@ja=n38)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    '*'
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +41,7 @@ INSTALLED_APPS = [
     'mptt',
     'ckeditor',
     'contact',
+    'gunicorn'
     # 'gallery',
 ]
 
@@ -81,13 +80,14 @@ WSGI_APPLICATION = 'cook_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+DATABASES= {
+    'default' : {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cookdb',
-        'USER': 'admin',
-        'PASSWORD': 'python2022',
-        'HOST': 'localhost'
+        'NAME': 'djangodb',
+        'USER': 'dbuser',
+        'PASSWORD': 'django',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
 
